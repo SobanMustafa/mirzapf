@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirza Aqeel - SEO Link Building Expert</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #0f172a;
+            overflow-x: hidden;
+            background: #0f172a;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Advanced Cursor */
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: #8b5cf6;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: transform 0.1s ease;
+        }
+
+        .cursor-trail {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: #8b5cf6;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+        }
+
+        /* Floating Particles Background */
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            border-radius: 50%;
+            animation: float 6s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 50px;
+            z-index: 1000;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            padding: 8px 25px;
+        }
+
+        .logo {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #8b5cf6;
+            text-decoration: none;
+            margin-right: 25px;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #e2e8f0;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: #8b5cf6;
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 25px;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-links a:hover::before {
+            opacity: 0.1;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            color: white;
+            padding: 140px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, #8b5cf620 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, #06b6d420 0%, transparent 50%),
+                        radial-gradient(circle at 40% 80%, #d946ef20 0%, transparent 50%);
+            animation: gradientShift 8s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(5deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.7); }
+            50% { box-shadow: 0 0 0 20px rgba(139, 92, 246, 0); }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #ffffff, #8b5cf6, #06b6d4);
+            background-size: 200% 200%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShine 3s ease-in-out infinite;
+        }
+
+        @keyframes textShine {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            color: #cbd5e1;
+            animation: slideInUp 1s ease-out 0.3s both;
+        }
+
+        .cta-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            animation: slideInUp 1s ease-out 0.6s both;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.4);
+        }
+
+        .cta-secondary {
+            background: rgba(139, 92, 246, 0.1);
+            border: 2px solid #8b5cf6;
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-secondary:hover {
+            background: rgba(139, 92, 246, 0.2);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-card {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(139, 92, 246, 0.6);
+            box-shadow: 0 25px 50px rgba(139, 92, 246, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .stat-label {
+            color: #e2e8f0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            padding: 120px 0;
+            color: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, #ffffff, #8b5cf6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-text p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(45deg, rgba(139, 92, 246, 0.2), rgba(6, 182, 212, 0.2));
+            border: 1px solid rgba(139, 92, 246, 0.5);
+            color: #e2e8f0;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .about-visual {
+            position: relative;
+        }
+
+        .chart-container {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            border-radius: 25px;
+            padding: 3rem;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chart-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+
+        .chart-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(139, 92, 246, 0.3);
+        }
+
+        /* Services Section */
+        .services {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            padding: 120px 0;
+            color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 4rem;
+            background: linear-gradient(45deg, #ffffff, #8b5cf6, #06b6d4);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .service-card {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            padding: 3rem;
+            border-radius: 25px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4, #d946ef);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            border-color: rgba(139, 92, 246, 0.6);
+            box-shadow: 0 30px 60px rgba(139, 92, 246, 0.3);
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #e2e8f0;
+        }
+
+        .service-card p {
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 2rem;
+            transition: color 0.3s ease;
+        }
+
+        .service-features li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+            color: #8b5cf6;
+            font-size: 1.2rem;
+        }
+
+        .service-features li:hover {
+            color: #e2e8f0;
+        }
+
+        /* Project Showcase */
+        .projects {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            padding: 120px 0;
+            color: white;
+        }
+
+        .project-card {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            border-radius: 25px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(139, 92, 246, 0.3);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #8b5cf6, #06b6d4, #d946ef);
+            color: white;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: translateX(-100%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            100% { transform: translateX(100%); }
+        }
+
+        .project-header h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-url {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-content {
+            padding: 3rem;
+        }
+
+        .project-highlights {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+        }
+
+        .project-highlights h4 {
+            color: #e2e8f0;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .project-highlights ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .project-highlights li {
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .project-highlights li::before {
+            content: '🚀';
+            position: absolute;
+            left: 0;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #8b5cf6, #06b6d4, #d946ef);
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(255,255,255,0.05) 0%, transparent 50%);
+            animation: contactFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes contactFloat {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.05) rotate(2deg); }
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact h2 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact p {
+            font-size: 1.3rem;
+            margin-bottom: 4rem;
+            opacity: 0.9;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .contact-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1.1rem; }
+            .about-content { grid-template-columns: 1fr; text-align: center; }
+            .nav-links { display: none; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
+            .contact-buttons { flex-direction: column; align-items: center; }
+            .cta-container { flex-direction: column; align-items: center; }
+        }
+
+        /* Advanced Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #7c3aed, #0891b2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    
+    <!-- Floating Particles -->
+    <div class="particles-container" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Mirza Aqeel</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">🚀 SEO Link Building Expert</div>
+                <h1>10X Your Rankings</h1>
+                <p class="hero-subtitle">High DA 50+ Sites • Strategic Link Insertion • 100% Ranking Success</p>
+                <div class="cta-container">
+                    <a href="mailto:mirzaaqeelseo@gmail.com" class="cta-button">Contact Me Now</a>
+                    <a href="#projects" class="cta-button cta-secondary">View My Work</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card fade-in">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Satisfied Clients</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Ranking Improvement</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support Available</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO Visual Section -->
+    <section class="seo-visuals" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 80px 0; color: white;">
+        <div class="container">
+            <h2 class="section-title fade-in">📊 SEO Performance Dashboard</h2>
+            
+            <!-- SEO Process Flow -->
+            <div class="seo-process fade-in" style="margin-bottom: 4rem;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
+                    <div class="process-step" style="background: linear-gradient(145deg, #1e293b, #0f172a); padding: 2rem; border-radius: 20px; border: 1px solid rgba(139, 92, 246, 0.3); position: relative;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🔍</div>
+                        <h4 style="color: #8b5cf6; margin-bottom: 1rem;">Research & Analysis</h4>
+                        <p style="color: #cbd5e1; font-size: 0.9rem;">Keyword research, competitor analysis, and site audit</p>
+                        <div class="process-arrow" style="position: absolute; right: -20px; top: 50%; transform: translateY(-50%); color: #8b5cf6; font-size: 2rem;">→</div>
+                    </div>
+                    
+                    <div class="process-step" style="background: linear-gradient(145deg, #1e293b, #0f172a); padding: 2rem; border-radius: 20px; border: 1px solid rgba(6, 182, 212, 0.3); position: relative;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">📝</div>
+                        <h4 style="color: #06b6d4; margin-bottom: 1rem;">Content Strategy</h4>
+                        <p style="color: #cbd5e1; font-size: 0.9rem;">High-quality content creation and optimization</p>
+                        <div class="process-arrow" style="position: absolute; right: -20px; top: 50%; transform: translateY(-50%); color: #06b6d4; font-size: 2rem;">→</div>
+                    </div>
+                    
+                    <div class="process-step" style="background: linear-gradient(145deg, #1e293b, #0f172a); padding: 2rem; border-radius: 20px; border: 1px solid rgba(217, 70, 239, 0.3); position: relative;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🔗</div>
+                        <h4 style="color: #d946ef; margin-bottom: 1rem;">Link Building</h4>
+                        <p style="color: #cbd5e1; font-size: 0.9rem;">Strategic backlink acquisition from DA 50+ sites</p>
+                        <div class="process-arrow" style="position: absolute; right: -20px; top: 50%; transform: translateY(-50%); color: #d946ef; font-size: 2rem;">→</div>
+                    </div>
+                    
+                    <div class="process-step" style="background: linear-gradient(145deg, #1e293b, #0f172a); padding: 2rem; border-radius: 20px; border: 1px solid rgba(16, 185, 129, 0.3);">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">📈</div>
+                        <h4 style="color: #10b981; margin-bottom: 1rem;">Results & Growth</h4>
+                        <p style="color: #cbd5e1; font-size: 0.9rem;">Ranking improvements and traffic growth tracking</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Keyword Ranking Visualization -->
+            <div class="keyword-rankings fade-in" style="background: linear-gradient(145deg, #1e293b, #0f172a); padding: 3rem; border-radius: 25px; border: 1px solid rgba(139, 92, 246, 0.3); margin-bottom: 3rem;">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: #8b5cf6;">🎯 Keyword Ranking Performance</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <!-- Keyword 1 -->
+                    <div style="background: rgba(15, 23, 42, 0.7); padding: 1.5rem; border-radius: 15px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span style="color: #e2e8f0; font-weight: 600;">"SEO Services"</span>
+                            <span style="background: #10b981; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem;">Position #1</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="flex: 1; height: 6px; background: rgba(139, 92, 246, 0.2); border-radius: 3px;">
+                                <div style="width: 100%; height: 100%; background: linear-gradient(45deg, #ef4444, #10b981); border-radius: 3px; animation: rankingProgress 2s ease-in-out;"></div>
+                            </div>
+                            <span style="color: #10b981; font-size: 0.9rem;">↗️ +50 positions</span>
+                        </div>
+                    </div>
+
+                    <!-- Keyword 2 -->
+                    <div style="background: rgba(15, 23, 42, 0.7); padding: 1.5rem; border-radius: 15px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span style="color: #e2e8f0; font-weight: 600;">"Link Building"</span>
+                            <span style="background: #10b981; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem;">Position #1</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="flex: 1; height: 6px; background: rgba(139, 92, 246, 0.2); border-radius: 3px;">
+                                <div style="width: 100%; height: 100%; background: linear-gradient(45deg, #ef4444, #10b981); border-radius: 3px; animation: rankingProgress 2.5s ease-in-out;"></div>
+                            </div>
+                            <span style="color: #10b981; font-size: 0.9rem;">↗️ +52 positions</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Link Profile Chart -->
+            <div class="link-profile fade-in" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                <div>
+                    <h3 style="color: #06b6d4; margin-bottom: 2rem;">🔗 Link Portfolio Distribution</h3>
+                    <!-- Donut Chart Representation -->
+                    <div style="position: relative; width: 200px; height: 200px; margin: 0 auto;">
+                        <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: conic-gradient(#10b981 0deg 252deg, #06b6d4 252deg 288deg, #8b5cf6 288deg 324deg, #ef4444 324deg 360deg); animation: rotate 10s linear infinite;"></div>
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background: #0f172a; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <div style="text-align: center; color: #e2e8f0;">
+                                <div style="font-size: 1.4rem; font-weight: bold;">1000+</div>
+                                <div style="font-size: 0.8rem;">Total Links</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 20px; height: 20px; background: #10b981; border-radius: 50%;"></div>
+                            <span style="color: #e2e8f0;">DA 60+ Sites (60%)</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 20px; height: 20px; background: #06b6d4; border-radius: 50%;"></div>
+                            <span style="color: #e2e8f0;">DA 50-59 Sites (30%)</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 20px; height: 20px; background: #8b5cf6; border-radius: 50%;"></div>
+                            <span style="color: #e2e8f0;">DA 40-49 Sites (8%)</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 20px; height: 20px; background: #ef4444; border-radius: 50%;"></div>
+                            <span style="color: #e2e8f0;">Other Sites (2%)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text slide-in-left">
+                    <h2>About Mirza Aqeel</h2>
+                    <p>I'm a passionate SEO Link Building specialist with extensive experience in helping businesses achieve higher search rankings through strategic guest posting and link insertion techniques.</p>
+                    <p>With over 100 successful projects completed, I specialize in securing high-quality backlinks from DA 50+ sites that drive real results. My approach focuses on natural link placement, SEO best practices, and ethical outreach strategies.</p>
+                    <div class="skills">
+                        <span class="skill-tag">Guest Posting</span>
+                        <span class="skill-tag">Link Building</span>
+                        <span class="skill-tag">SEO Outreach</span>
+                        <span class="skill-tag">Content Strategy</span>
+                        <span class="skill-tag">DA Analysis</span>
+                        <span class="skill-tag">Link Insertion</span>
+                    </div>
+                </div>
+                <div class="about-visual slide-in-right">
+                    <div class="chart-container">
+                        <div class="chart-content">
+                            <h3 style="text-align: center; margin-bottom: 2rem; color: #e2e8f0;">SEO Performance Analytics</h3>
+                            
+                            <!-- SEO Growth Chart -->
+                            <div style="background: rgba(139, 92, 246, 0.1); padding: 2rem; border-radius: 15px; margin-bottom: 2rem; border: 1px solid rgba(139, 92, 246, 0.3);">
+                                <h4 style="color: #8b5cf6; margin-bottom: 1rem; text-align: center;">📈 Ranking Improvements</h4>
+                                <div style="display: flex; justify-content: space-between; align-items: end; height: 120px; margin: 1rem 0; background: rgba(15, 23, 42, 0.5); padding: 1rem; border-radius: 10px;">
+                                    <div style="display: flex; flex-direction: column; align-items: center;">
+                                        <div style="width: 20px; height: 30px; background: linear-gradient(to top, #ef4444, #f97316); border-radius: 5px 5px 0 0; margin-bottom: 5px;"></div>
+                                        <span style="font-size: 0.8rem; color: #cbd5e1;">Before</span>
+                                    </div>
+                                    <div style="display: flex; flex-direction: column; align-items: center;">
+                                        <div style="width: 20px; height: 60px; background: linear-gradient(to top, #f97316, #eab308); border-radius: 5px 5px 0 0; margin-bottom: 5px;"></div>
+                                        <span style="font-size: 0.8rem; color: #cbd5e1;">Month 1</span>
+                                    </div>
+                                    <div style="display: flex; flex-direction: column; align-items: center;">
+                                        <div style="width: 20px; height: 85px; background: linear-gradient(to top, #eab308, #84cc16); border-radius: 5px 5px 0 0; margin-bottom: 5px;"></div>
+                                        <span style="font-size: 0.8rem; color: #cbd5e1;">Month 2</span>
+                                    </div>
+                                    <div style="display: flex; flex-direction: column; align-items: center;">
+                                        <div style="width: 20px; height: 100px; background: linear-gradient(to top, #84cc16, #10b981); border-radius: 5px 5px 0 0; margin-bottom: 5px;"></div>
+                                        <span style="font-size: 0.8rem; color: #cbd5e1;">Month 3</span>
+                                    </div>
+                                </div>
+                                <div style="text-align: center; color: #10b981; font-weight: 600; font-size: 1.1rem;">🎯 Average 10X Ranking Boost</div>
+                            </div>
+
+                            <!-- DA Distribution -->
+                            <div style="background: rgba(6, 182, 212, 0.1); padding: 2rem; border-radius: 15px; margin-bottom: 2rem; border: 1px solid rgba(6, 182, 212, 0.3);">
+                                <h4 style="color: #06b6d4; margin-bottom: 1rem; text-align: center;">🔗 Domain Authority Portfolio</h4>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                    <div style="text-align: center; padding: 1rem; background: rgba(15, 23, 42, 0.5); border-radius: 10px;">
+                                        <div style="font-size: 2rem; color: #8b5cf6; margin-bottom: 0.5rem;">90%</div>
+                                        <div style="font-size: 0.9rem; color: #cbd5e1;">DA 50+ Sites</div>
+                                    </div>
+                                    <div style="text-align: center; padding: 1rem; background: rgba(15, 23, 42, 0.5); border-radius: 10px;">
+                                        <div style="font-size: 2rem; color: #06b6d4; margin-bottom: 0.5rem;">98%</div>
+                                        <div style="font-size: 0.9rem; color: #cbd5e1;">Link Stability</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SEO Metrics Visualization -->
+                            <div style="background: rgba(217, 70, 239, 0.1); padding: 2rem; border-radius: 15px; border: 1px solid rgba(217, 70, 239, 0.3);">
+                                <h4 style="color: #d946ef; margin-bottom: 1rem; text-align: center;">🚀 Impact Metrics</h4>
+                                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <span style="color: #cbd5e1; font-size: 0.9rem;">🔍 Organic Traffic Boost</span>
+                                        <div style="flex: 1; margin: 0 1rem; height: 8px; background: rgba(217, 70, 239, 0.2); border-radius: 4px; overflow: hidden;">
+                                            <div style="width: 90%; height: 100%; background: linear-gradient(45deg, #d946ef, #8b5cf6); border-radius: 4px; animation: fillBar 2s ease-in-out;"></div>
+                                        </div>
+                                        <span style="color: #d946ef; font-weight: 700; font-size: 0.9rem;">+300%</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <span style="color: #cbd5e1; font-size: 0.9rem;">📊 SERP Improvements</span>
+                                        <div style="flex: 1; margin: 0 1rem; height: 8px; background: rgba(139, 92, 246, 0.2); border-radius: 4px; overflow: hidden;">
+                                            <div style="width: 85%; height: 100%; background: linear-gradient(45deg, #8b5cf6, #06b6d4); border-radius: 4px; animation: fillBar 2.5s ease-in-out;"></div>
+                                        </div>
+                                        <span style="color: #8b5cf6; font-weight: 700; font-size: 0.9rem;">+250%</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <span style="color: #cbd5e1; font-size: 0.9rem;">💰 Revenue Growth</span>
+                                        <div style="flex: 1; margin: 0 1rem; height: 8px; background: rgba(6, 182, 212, 0.2); border-radius: 4px; overflow: hidden;">
+                                            <div style="width: 95%; height: 100%; background: linear-gradient(45deg, #06b6d4, #10b981); border-radius: 4px; animation: fillBar 3s ease-in-out;"></div>
+                                        </div>
+                                        <span style="color: #06b6d4; font-weight: 700; font-size: 0.9rem;">+400%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO Tools Section -->
+    <section class="seo-tools" id="tools" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); padding: 100px 0; color: white;">
+        <div class="container">
+            <h2 class="section-title fade-in">🛠️ Professional SEO Tools Arsenal</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 3rem; margin-bottom: 4rem;">
+                <!-- SEMRush Card -->
+                <div class="tool-card fade-in" style="background: linear-gradient(145deg, #1e293b, #0f172a); padding: 3rem; border-radius: 25px; border: 1px solid rgba(255, 102, 102, 0.3); position: relative; overflow: hidden; transition: all 0.3s ease;">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(45deg, #ff6666, #ff4444);"></div>
+                    <div style="display: flex; align-items: center; margin-bottom: 2rem;">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(45deg, #ff6666, #ff4444); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-right: 1.5rem;">
+                            <span style="color: white; font-size: 1.5rem; font-weight: bold;">S</span>
+                        </div>
+                        <div>
+                            <h3 style="color: #ff6666; font-size: 1.8rem; margin-bottom: 0.5rem;">SEMRush</h3>
+                            <p style="color: #cbd5e1; font-size: 0.9rem;">Premium SEO Analytics Platform</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h4 style="color: #e2e8f0; margin-bottom: 1rem; font-size: 1.2rem;">🔍 Key Features I Use:</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="color: #cbd5e1; margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #ff6666;">✓</span>
+                                Keyword Research & Analysis
+                            </li>
+                            <li style="color: #cbd5e1; margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #ff6666;">✓</span>
+                                Competitor Backlink Analysis
+                            </li>
+                            <li style="color: #cbd5e1; margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #ff6666;">✓</span>
+                                Site Audit & Technical SEO
+                            </li>
+                            <li style="color: #cbd5e1; margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #ff6666;">✓</span>
+                                SERP Position Tracking
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(255, 102, 102, 0.1); padding: 1.5rem; border-radius: 15px; text-align: center;">
+                        <div style="font-size: 2.5rem; color: #ff6666; margin-bottom: 0.5rem;">20M+</div>
+                        <div style="color: #cbd5e1; font-size: 0.9rem;">Keywords Database Access</div>
+                    </div>
+                </div>
+
+                <!-- Ahrefs Card -->
+                <div class="tool-card fade-in" style="background: linear-gradient(145deg, #1e293b, #0f172a); padding: 3rem; border-radius: 25px; border: 1px solid rgba(255, 165, 0, 0.3); position: relative; overflow: hidden; transition: all 0.3s ease;">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(45deg, #ffa500, #ff8c00);"></div>
+                    <div style="display: flex; align-items: center; margin-bottom: 2rem;">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(45deg, #ffa500, #ff8c00); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-right: 1.5rem;">
+                            <span style="color: white; font-size: 1.5rem; font-weight: bold;">A</span>
+                        </div>
+                        <div>
+                            <h3 style="color: #ffa500; font-size: 1.8rem; margin-bottom: 0.5rem;">Ahrefs</h3>
+                            <p style="color: #cbd5e1; font-size: 0.9rem;">Advanced Link Building Tool</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h4 style="color: #e2e8f0; margin-bottom: 1rem; font-size: 1.2rem;">🔗 Key Features I Use:</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="color: #cbd5e1; margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #ffa500;">✓</span>
+                                Site Explorer & DR Analysis
+                            </li>
+                            <li style="color: #cbd5e1; margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #ffa500;">✓</span>
+                                Content Gap Analysis
+                            </li>
+                            <li style="color: #cbd5e1; margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #ffa500;">✓</span>
+                                Broken Link Opportunities
+                            </li>
+                            <li style="color: #cbd5e1; margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; color: #ffa500;">✓</span>
+                                Link Prospecting & Outreach
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(255, 165, 0, 0.1); padding: 1.5rem; border-radius: 15px; text-align: center;">
+                        <div style="font-size: 2.5rem; color: #ffa500; margin-bottom: 0.5rem;">24T+</div>
+                        <div style="color: #cbd5e1; font-size: 0.9rem;">Backlinks Database</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tools Workflow -->
+            <div class="tools-workflow fade-in" style="background: linear-gradient(145deg, #1e293b, #0f172a); padding: 3rem; border-radius: 25px; border: 1px solid rgba(139, 92, 246, 0.3);">
+                <h3 style="text-align: center; margin-bottom: 3rem; color: #8b5cf6; font-size: 2rem;">📈 My SEO Analysis Workflow</h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div style="text-align: center; padding: 2rem; background: rgba(15, 23, 42, 0.5); border-radius: 15px;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🔍</div>
+                        <h4 style="color: #ff6666; margin-bottom: 1rem;">SEMRush Analysis</h4>
+                        <p style="color: #cbd5e1; font-size: 0.9rem;">Keyword research, competitor analysis, and site auditing</p>
+                    </div>
+                    
+                    <div style="text-align: center; padding: 2rem; background: rgba(15, 23, 42, 0.5); border-radius: 15px;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🔗</div>
+                        <h4 style="color: #ffa500; margin-bottom: 1rem;">Ahrefs Research</h4>
+                        <p style="color: #cbd5e1; font-size: 0.9rem;">Link prospecting, DR analysis, and content gap identification</p>
+                    </div>
+                    
+                    <div style="text-align: center; padding: 2rem; background: rgba(15, 23, 42, 0.5); border-radius: 15px;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">📊</div>
+                        <h4 style="color: #06b6d4; margin-bottom: 1rem;">Strategy Development</h4>
+                        <p style="color: #cbd5e1; font-size: 0.9rem;">Data-driven link building and content optimization strategies</p>
+                    </div>
+                    
+                    <div style="text-align: center; padding: 2rem; background: rgba(15, 23, 42, 0.5); border-radius: 15px;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🚀</div>
+                        <h4 style="color: #10b981; margin-bottom: 1rem;">Implementation</h4>
+                        <p style="color: #cbd5e1; font-size: 0.9rem;">Execute high-quality link placements and track results</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Professional Certification Badge -->
+            <div class="certification-badge fade-in" style="text-align: center; margin-top: 4rem;">
+                <div style="display: inline-block; background: linear-gradient(45deg, #8b5cf6, #06b6d4); padding: 2px; border-radius: 20px;">
+                    <div style="background: #0f172a; padding: 1.5rem 3rem; border-radius: 18px;">
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 1rem;">
+                            <div style="font-size: 2rem;">🏆</div>
+                            <div>
+                                <div style="color: #e2e8f0; font-size: 1.2rem; font-weight: 600;">Professional SEO Tools Expert</div>
+                                <div style="color: #8b5cf6; font-size: 0.9rem;">Certified in Advanced SEO Analytics & Link Building</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title fade-in">My Services</h2>
+            <div class="services-grid">
+                        <div style="background: linear-gradient(145deg, #1e293b, #0f172a); padding: 3rem; border-radius: 25px; border: 1px solid rgba(139, 92, 246, 0.3); position: relative; overflow: hidden;">
+                    <div class="service-icon">🔗</div>
+                    <h3>Strategic Link Insertion</h3>
+                    <p>I'll insert your backlinks naturally into high-authority existing content on DA 50+ sites for maximum SEO impact.</p>
+                    <ul class="service-features">
+                        <li>Natural anchor text placement</li>
+                        <li>High DA 50+ sites only</li>
+                        <li>Contextually relevant content</li>
+                        <li>White-hat SEO practices</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">📝</div>
+                    <h3>Guest Posting Services</h3>
+                    <p>High-quality guest posts on authoritative sites in your niche to build domain authority and drive targeted traffic.</p>
+                    <ul class="service-features">
+                        <li>Custom content creation</li>
+                        <li>Niche-relevant sites</li>
+                        <li>Editorial guidelines compliance</li>
+                        <li>Long-term link stability</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">📊</div>
+                    <h3>SEO Link Analysis</h3>
+                    <p>Comprehensive analysis of your current backlink profile and actionable recommendations for improvement.</p>
+                    <ul class="service-features">
+                        <li>Backlink profile analysis</li>
+                        <li>Competitor research</li>
+                        <li>Link building opportunities</li>
+                        <li>Custom strategy roadmap</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Showcase -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title fade-in">Featured Project</h2>
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <h3>High-Quality Link Insertion for Neo.Space</h3>
+                    <div class="project-url">https://www.neo.space/blog/how-to-start-dropshipping</div>
+                </div>
+                <div class="project-content">
+                    <p><strong>Challenge:</strong> Client needed a high-authority backlink insertion for the keyword "VPN" on a relevant dropshipping-related article.</p>
+                    
+                    <p><strong>Solution:</strong> I successfully coordinated with Neo.Space to insert the client's link with natural anchor text "VPN" linking to NordVPN's official page, ensuring contextual relevance and SEO best practices.</p>
+                    
+                    <div class="project-highlights">
+                        <h4>Key Highlights:</h4>
+                        <ul>
+                            <li>Strategic keyword placement on high-authority site</li>
+                            <li>Natural anchor text integration maintaining content flow</li>
+                            <li>Ethical outreach and publisher communication</li>
+                            <li>100% compliance with SEO guidelines</li>
+                            <li>Enhanced client's domain authority and search visibility</li>
+                        </ul>
+                    </div>
+                    
+                    <p><strong>Results:</strong> The backlink contributed to improved search visibility, enhanced domain authority, and increased organic traffic for the client's target keywords.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2>Ready to 10X Your Rankings?</h2>
+                <p>Let's discuss how strategic link building can transform your SEO performance</p>
+                <div class="contact-buttons">
+                    <a href="https://www.linkedin.com/in/mirza-aqeel-outreach-specialist/" target="_blank" class="contact-btn">Connect on LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/mirza-aqeel-outreach-specialist/" target="_blank" class="contact-btn">Start Your Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const size = Math.random() * 4 + 1;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 10 + 5) + 's';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                
+                container.appendChild(particle);
+            }
+        }
+
+        // Custom cursor
+        function initCursor() {
+            const cursor = document.querySelector('.cursor');
+            let trails = [];
+
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX - 10 + 'px';
+                cursor.style.top = e.clientY - 10 + 'px';
+
+                // Create trail effect
+                const trail = document.createElement('div');
+                trail.className = 'cursor-trail';
+                trail.style.left = e.clientX - 2 + 'px';
+                trail.style.top = e.clientY - 2 + 'px';
+                document.body.appendChild(trail);
+                
+                trails.push(trail);
+                
+                setTimeout(() => {
+                    trail.style.opacity = '0';
+                    setTimeout(() => {
+                        if (trail.parentNode) {
+                            trail.parentNode.removeChild(trail);
+                        }
+                        trails = trails.filter(t => t !== trail);
+                    }, 300);
+                }, 100);
+
+                if (trails.length > 10) {
+                    const oldTrail = trails.shift();
+                    if (oldTrail.parentNode) {
+                        oldTrail.parentNode.removeChild(oldTrail);
+                    }
+                }
+            });
+
+            // Cursor hover effects
+            const hoverElements = document.querySelectorAll('a, button, .service-card, .stat-card, .project-card');
+            hoverElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.style.transform = 'scale(2)';
+                    cursor.style.backgroundColor = '#06b6d4';
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursor.style.transform = 'scale(1)';
+                    cursor.style.backgroundColor = '#8b5cf6';
+                });
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Advanced Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(15, 23, 42, 0.95)';
+                nav.style.boxShadow = '0 10px 30px rgba(139, 92, 246, 0.3)';
+            } else {
+                nav.style.background = 'rgba(15, 23, 42, 0.8)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Enhanced counter animation for stats
+        const animateCounter = (element, target) => {
+            if (target === '100%') {
+                let current = 0;
+                const timer = setInterval(() => {
+                    current += 2;
+                    if (current >= 100) {
+                        current = 100;
+                        clearInterval(timer);
+                    }
+                    element.textContent = current + '%';
+                    element.style.transform = `scale(${1 + (current / 1000)})`;
+                }, 30);
+            } else if (target === '100+') {
+                let current = 0;
+                const timer = setInterval(() => {
+                    current += 2;
+                    if (current >= 100) {
+                        current = 100;
+                        clearInterval(timer);
+                    }
+                    element.textContent = current + '+';
+                    element.style.transform = `scale(${1 + (current / 1000)})`;
+                }, 30);
+            } else {
+                element.textContent = target;
+            }
+        };
+
+        // Observe stat numbers for counter animation
+        const statObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumber = entry.target.querySelector('.stat-number');
+                    const text = statNumber.textContent;
+                    if (text.includes('100+')) {
+                        animateCounter(statNumber, '100+');
+                    } else if (text.includes('100%')) {
+                        animateCounter(statNumber, '100%');
+                    } else if (text.includes('24/7')) {
+                        statNumber.textContent = '24/7';
+                    }
+                    statObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.stat-card').forEach(card => {
+            statObserver.observe(card);
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Initialize effects
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            initCursor();
+            
+            // Add loading animation
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 1s ease-in-out';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Mouse move parallax for hero
+        document.addEventListener('mousemove', (e) => {
+            const hero = document.querySelector('.hero::before');
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            
+            if (hero) {
+                hero.style.backgroundPosition = `${x}% ${y}%`;
+            }
+        });
+
+        // Add dynamic typing effect to hero title
+        function typeWriter() {
+            const text = "10X Your Rankings";
+            const element = document.querySelector('.hero h1');
+            element.textContent = '';
+            let i = 0;
+            
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, 100);
+                }
+            }
+            
+            setTimeout(type, 1000);
+        }
+
+        // Add glitch effect to title on hover
+        const title = document.querySelector('.hero h1');
+        if (title) {
+            title.addEventListener('mouseenter', () => {
+                title.style.animation = 'textShine 0.3s ease-in-out, glitch 0.5s ease-in-out';
+            });
+            title.addEventListener('mouseleave', () => {
+                title.style.animation = 'textShine 3s ease-in-out infinite';
+            });
+        }
+    </script>
+
+    <style>
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+
+        @keyframes fillBar {
+            from { width: 0%; }
+            to { width: 100%; }
+        }
+
+        @keyframes rankingProgress {
+            from { width: 0%; }
+            to { width: 100%; }
+        }
+
+        @media (max-width: 768px) {
+            .process-arrow { display: none; }
+            .link-profile { grid-template-columns: 1fr !important; text-align: center; }
+        }
+    </style>
+</body>
+</html>
